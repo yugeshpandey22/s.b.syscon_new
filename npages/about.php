@@ -1,7 +1,6 @@
 <?php
-require_once 'config/constants.php';
-require_once 'includes/head.php';
-require_once 'includes/navbar.php';
+require_once '../includes/head.php';
+require_once '../includes/navbar.php';
 ?>
 
 <!-- Page Header -->
@@ -12,30 +11,7 @@ require_once 'includes/navbar.php';
         <div class="bg-primary mx-auto mt-4" style="width: 100px; height: 5px;"></div>
         <p class="lead text-white-50 mt-4 fw-light ls-1 text-uppercase animate-fade-in">Excellence in Industrial Automation & Engineering</p>
     </div>
-    <style>
-        .page-header { overflow: hidden; }
-        .page-header::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: url('assets/css/about_banner_premium.png') no-repeat center center; 
-            background-size: cover;
-            animation: zoomBg 20s infinite alternate;
-            z-index: 0;
-        }
-        .page-header .position-absolute,
-        .page-header .container { z-index: 1; } /* Ensure text sits on top */
-        
-        @keyframes zoomBg {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.15); }
-        }
-
-        .animate-slide-down { animation: slideDown 1s ease-out; }
-        .animate-fade-in { animation: fadeIn 1.5s ease-out; }
-        @keyframes slideDown { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    </style>
+<link rel="stylesheet" href="../assets/css/about.css">
 </section>
 
 <!-- Who We Are Section -->
@@ -84,15 +60,10 @@ require_once 'includes/navbar.php';
             </div>
         </div>
     </div>
-    <style>
-        .feature-card:hover {
-            transform: translateY(-10px);
-        }
-    </style>
 </section>
 
 <!-- Our Product Range Section -->
-<section class="product-range py-5 position-relative" style="background: url('assets/css/machine_bg.png') no-repeat center center; background-size: cover; background-attachment: fixed;">
+<section class="product-range py-5 position-relative" style="background: url('../assets/images2/machine_bg.png') no-repeat center center; background-size: cover; background-attachment: fixed;">
     <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0,0,0,0.85);"></div>
     <div class="container position-relative z-index-1 py-4">
         <div class="text-center mb-5">
@@ -326,10 +297,6 @@ require_once 'includes/navbar.php';
             </div>
         </div>
     </div>
-    <style>
-        .hover-shadow { transition: box-shadow 0.3s ease; }
-        .hover-shadow:hover { box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-    </style>
 </section>
 
 <!-- Celebrating Trust Section -->
@@ -438,122 +405,6 @@ require_once 'includes/navbar.php';
         </div>
     </div>
     
-    <style>
-        .value-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .value-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-        }
-        .icon-box {
-            transition: transform 0.3s ease;
-        }
-        .value-card:hover .icon-box {
-            transform: scale(1.1);
-        }
-        
-        /* ----- MOBILE RESPONSIVE ----- */
-        @media (max-width: 991px) {
-            .page-header {
-                height: 350px !important;
-            }
-            .display-2 {
-                font-size: 3rem !important;
-            }
-        }
-
-        @media (max-width: 768px) {
-            /* Page Header */
-            .page-header {
-                height: 300px !important;
-            }
-            .display-2 { /* About Us Title */
-                font-size: 2.2rem !important;
-            }
-            .page-header .lead {
-                font-size: 0.9rem !important;
-                padding: 0 15px;
-            }
-            
-            /* Section Headings */
-            h2.fw-bold { 
-                font-size: 1.7rem !important; 
-            }
-            .display-6 {
-                font-size: 1.5rem !important;
-            }
-            
-            /* Content Padding */
-            section {
-                padding-top: 40px !important;
-                padding-bottom: 40px !important;
-            }
-            
-            /* Lists & Text */
-            ul.list-unstyled li {
-                font-size: 0.9rem !important;
-                margin-bottom: 1rem !important;
-            }
-            p.lead {
-                font-size: 1rem !important;
-                line-height: 1.6 !important;
-            }
-            .p-5 {
-                padding: 1.5rem !important; /* Fix oversized padding on mobile cards */
-            }
-             .p-4 {
-                padding: 1.25rem !important;
-            }
-            
-            /* Reorder Columns for Text First, Image/List Second on Mobile */
-            .order-lg-1 { order: 2; }
-            .order-lg-2 { order: 1; margin-bottom: 2rem; }
-            
-            /* Cards Spacing */
-            .feature-card, .value-card, .bg-white.text-dark {
-                margin-bottom: 20px;
-            }
-            
-            /* FIX: Prevent Horizontal Scrolling (Side-Sway) */
-            html, body {
-                max-width: 100%;
-                overflow-x: hidden !important;
-            }
-            section {
-                overflow-x: hidden !important;
-                width: 100% !important;
-            }
-            .container {
-                padding-right: 20px;
-                padding-left: 20px;
-                overflow-x: hidden;
-            }
-            .row {
-                margin-right: -10px !important;
-                margin-left: -10px !important;
-            }
-            .col-12, .col-lg-4, .col-lg-6, .col-md-6 {
-                padding-right: 10px !important;
-                padding-left: 10px !important;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .page-header {
-                height: 250px !important;
-            }
-            .display-2 {
-                font-size: 1.8rem !important;
-            }
-            h2.fw-bold { 
-                font-size: 1.5rem !important; 
-            }
-             .icon-wrapper .fa-3x {
-                font-size: 2.5em; /* Smaller icons */
-            }
-        }
-    </style>
 </section>
 
-<?php require_once 'includes/footer.php'; ?>
+<?php require_once '../includes/footer.php'; ?>

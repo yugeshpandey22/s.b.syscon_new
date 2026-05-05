@@ -1,7 +1,7 @@
 <?php
-require_once 'config/constants.php';
-require_once 'includes/head.php';
-require_once 'includes/navbar.php';
+require_once '../config/constants.php';
+require_once '../includes/head.php';
+require_once '../includes/navbar.php';
 ?>
 
 <!-- AOS for Animations -->
@@ -13,7 +13,7 @@ require_once 'includes/navbar.php';
         <div class="row g-0">
             <div class="col-12 text-center bg-dark">
                 <!-- Main Export Banner Image -->
-                <img src="assets/images/exports_bg.png" alt="Global Exports" class="img-fluid w-100 animate-hero-img" style="max-height: 85vh; object-fit: cover; opacity: 0.95;">
+                <img src="../assets/images/exports_bg.png" alt="Global Exports" class="img-fluid w-100 animate-hero-img" style="max-height: 85vh; object-fit: cover; opacity: 0.95;">
             </div>
         </div>
     </div>
@@ -36,7 +36,7 @@ require_once 'includes/navbar.php';
            <div class="col-lg-5 mb-4 mb-lg-0" data-aos="fade-right">
                <!-- Ship Image -->
                 <!-- Ship Image -->
-                <img src="assets/images/cargo_ship.jpg" alt="Cargo Ship - Global Logistics" class="img-fluid rounded shadow-lg w-100" style="min-height: 350px; object-fit: cover;">
+                <img src="../assets/images/cargo_ship.jpg" alt="Cargo Ship - Global Logistics" class="img-fluid rounded shadow-lg w-100" style="min-height: 350px; object-fit: cover;">
            </div>
            <div class="col-lg-7 ps-lg-5" data-aos="fade-left">
                <p class="mb-4 text-secondary" style="line-height: 1.8; font-size: 1.05rem;">
@@ -57,7 +57,7 @@ require_once 'includes/navbar.php';
            <div class="col" data-aos="fade-up" data-aos-delay="100">
                 <div class="p-3 hover-lift position-relative d-inline-block w-100">
                    <div class="position-relative d-inline-block w-100">
-                        <img src="assets/images/asia.jpg" class="img-fluid w-100" style="object-fit: cover;" alt="Asia">
+                        <img src="../assets/images/asia.jpg" class="img-fluid w-100" style="object-fit: cover;" alt="Asia">
                    </div>
                    <h6 class="fw-bold text-dark mt-3">Asia</h6>
                 </div>
@@ -66,7 +66,7 @@ require_once 'includes/navbar.php';
            <div class="col" data-aos="fade-up" data-aos-delay="200">
                 <div class="p-3 hover-lift position-relative d-inline-block w-100">
                    <div class="position-relative d-inline-block w-100">
-                        <img src="assets/images/middle-east.jpg" class="img-fluid w-100" style="object-fit: cover;" alt="Middle East">
+                        <img src="../assets/images/middle-east.jpg" class="img-fluid w-100" style="object-fit: cover;" alt="Middle East">
                    </div>
                    <h6 class="fw-bold text-dark mt-3">Middle East</h6>
                 </div>
@@ -75,7 +75,7 @@ require_once 'includes/navbar.php';
            <div class="col" data-aos="fade-up" data-aos-delay="300">
                 <div class="p-3 hover-lift position-relative d-inline-block w-100">
                    <div class="position-relative d-inline-block w-100">
-                        <img src="assets/images/africa.jpg" class="img-fluid w-100" style="object-fit: cover;" alt="Africa">
+                        <img src="../assets/images/africa.jpg" class="img-fluid w-100" style="object-fit: cover;" alt="Africa">
                    </div>
                    <h6 class="fw-bold text-dark mt-3">Africa</h6>
                 </div>
@@ -84,7 +84,7 @@ require_once 'includes/navbar.php';
            <div class="col" data-aos="fade-up" data-aos-delay="400">
                 <div class="p-3 hover-lift position-relative d-inline-block w-100">
                    <div class="position-relative d-inline-block w-100">
-                        <img src="assets/images/latin-america.jpg" class="img-fluid w-100" style="object-fit: cover;" alt="Latin America">
+                        <img src="../assets/images/latin-america.jpg" class="img-fluid w-100" style="object-fit: cover;" alt="Latin America">
                    </div>
                    <h6 class="fw-bold text-dark mt-3">Latin America</h6>
                 </div>
@@ -93,7 +93,7 @@ require_once 'includes/navbar.php';
            <div class="col" data-aos="fade-up" data-aos-delay="500">
                 <div class="p-3 hover-lift position-relative d-inline-block w-100">
                    <div class="position-relative d-inline-block w-100">
-                        <img src="assets/images/europe.jpg" class="img-fluid w-100" style="object-fit: cover;" alt="Europe">
+                        <img src="../assets/images/europe.jpg" class="img-fluid w-100" style="object-fit: cover;" alt="Europe">
                    </div>
                    <h6 class="fw-bold text-dark mt-3">Europe</h6>
                 </div>
@@ -110,49 +110,7 @@ require_once 'includes/navbar.php';
     </div>
 </section>
 
-<style>
-    .animate-hero-img {
-        animation: slideInHero 1.5s ease-out forwards;
-    }
-    @keyframes slideInHero {
-        from { opacity: 0; transform: scale(1.05); }
-        to { opacity: 0.95; transform: scale(1); }
-    }
-
-    .hover-lift {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .hover-lift:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-    
-    /* MOBILE FIXES */
-    @media (max-width: 991px) {
-        .exports-hero img {
-            max-height: 400px !important;
-        }
-        
-        /* FIX: Prevent Horizontal Scrolling (Side-Sway) */
-        html, body {
-            max-width: 100%;
-            overflow-x: hidden !important;
-        }
-        section {
-            overflow-x: hidden !important;
-            width: 100% !important;
-        }
-        .container, .container-fluid {
-            padding-right: 15px;
-            padding-left: 15px;
-            overflow-x: hidden;
-        }
-        .row {
-            margin-right: 0 !important;
-            margin-left: 0 !important;
-        }
-    }
-</style>
+<link rel="stylesheet" href="../assets/css/exports.css">
 
 <!-- AOS Script -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -160,7 +118,7 @@ require_once 'includes/navbar.php';
     AOS.init();
 </script>
 
-<?php require_once 'includes/footer.php'; ?>
+<?php require_once '../includes/footer.php'; ?>
  
 
 

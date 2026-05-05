@@ -1,77 +1,7 @@
 <?php
 // includes/navbar.php matched to sbsyscon.in layout
 ?>
-<style>
-    /* Desktop Top Header Styles */
-    .top-header {
-        background: #fff;
-        padding: 10px 0;
-        border-bottom: 1px solid #eee;
-    }
-    
-    /* Mobile Updates for Stacked Layout */
-    @media (max-width: 991px) {
-        .top-header {
-            display: block !important; /* Force show on mobile */
-            text-align: center;
-            padding: 15px 0;
-        }
-        .top-header .d-flex {
-            justify-content: center !important; /* Center logo */
-        }
-        /* Hide Desktop Contact Info on Mobile */
-        .top-header .contact-info-group {
-            display: none !important;
-        }
-        /* Adjust Red Navbar */
-        .navbar {
-            min-height: 50px;
-            margin-bottom: 0 !important; /* Fix Gap */
-            border-bottom: none !important;
-            justify-content: center !important; /* Flex Center */
-        }
-        .navbar-toggler {
-            margin: 0 auto !important; /* Center the hamburger menu */
-            border: 2px solid rgba(255,255,255,0.8);
-            padding: 4px 10px;
-            display: block;
-        }
-        .navbar-brand.d-lg-none {
-            display: none !important; /* Hide the logo inside the red bar */
-        }
-        /* Mobile Menu Items Styling (Target: Centered, Red Background) */
-        .navbar-collapse {
-            background: #ce1126; /* Force Red Background on Dropdown */
-            padding-bottom: 10px;
-            text-align: center;
-        }
-        .navbar-nav .nav-link {
-            color: #ffffff !important;
-            font-weight: 500;
-            font-size: 1rem;
-            padding: 10px 0 !important;
-        }
-    }
-    
-    .btn-sbsmart {
-        background: linear-gradient(135deg, #bf2626 0%, #a61c1c 100%);
-        color: white;
-        text-decoration: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        font-weight: 700;
-        display: flex;
-        align-items: center;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 6px rgba(191, 38, 38, 0.2);
-        letter-spacing: 0.5px;
-    }
-    .btn-sbsmart:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 12px rgba(191, 38, 38, 0.3);
-        color: white;
-    }
-</style>
+<link rel="stylesheet" href="../assets/css/navbar.css">
 
 <!-- Top Logo Strip (Both Desktop & Mobile Now) -->
 <div class="top-header">
@@ -79,7 +9,7 @@
         <div class="d-flex justify-content-between align-items-center">
             <!-- Logo Area -->
             <a href="index.php" class="logo-area">
-                <img src="assets/css/headerlogo.png" alt="S.B. Syscon Logo" class="img-fluid" style="max-height: 80px;">
+                <img src="../assets/images2/headerlogo.png" alt="S.B. Syscon Logo" class="img-fluid" style="max-height: 80px;">
             </a>
             
             <!-- Contact Info (Desktop Only Wrapper) -->
@@ -114,7 +44,7 @@
     <div class="container">
         <!-- Mobile Logo HIDDEN (It's now on top) -->
         <a class="navbar-brand d-lg-none d-none" href="index.php">
-            <img src="assets/css/headerlogo.png" alt="S.B. Syscon" height="40">
+            <img src="../assets/images2/headerlogo.png" alt="S.B. Syscon" height="40">
         </a>
         
         <!-- Toggle Button Centered -->

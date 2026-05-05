@@ -1,14 +1,13 @@
 <?php
-require_once 'config/constants.php';
-require_once 'includes/head.php';
-require_once 'includes/navbar.php';
+require_once '../includes/head.php';
+require_once '../includes/navbar.php';
 ?> 
 
 <!-- AOS For Animations -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <!-- Hero Section with Custom Background -->
-<section class="pricelist-hero d-flex align-items-center justify-content-center text-center text-white animate-bg-pulse" style="background: url('assets/images/pricelist_new_banner.jpg') no-repeat center center; background-size: cover; min-height: 400px; position: relative;">
+<section class="pricelist-hero d-flex align-items-center justify-content-center text-center text-white animate-bg-pulse" style="background: url('../assets/images/pricelist_new_banner.jpg') no-repeat center center; background-size: cover; min-height: 400px; position: relative;">
     <!-- Overlay -->
     <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7));"></div>
     
@@ -23,112 +22,13 @@ require_once 'includes/navbar.php';
     </div>
 </section>
 
-<style>
-    @keyframes bgPulse {
-        0% { background-size: 100%; }
-        100% { background-size: 110%; }
-    }
-    .animate-bg-pulse {
-        animation: bgPulse 20s infinite alternate;
-    }
-</style>
+<link rel="stylesheet" href="../assets/css/pricelists.css">
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     AOS.init();
 </script>
 
-<style>
-    /* Premium Price List Design */
-    .principal-card {
-        background: #ffffff;
-        border: 1px solid #e5e7eb;
-        border-left: 5px solid #dc3545; /* Red accent bar on left */
-        border-radius: 8px;
-        margin-bottom: 24px;
-        transition: all 0.3s ease;
-        overflow: hidden;
-    }
-    
-    .principal-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-        border-color: #dc3545; /* Full red border on hover */
-    }
-
-    /* Left Side: Brand/Logo */
-    .brand-section {
-        background-color: #f8f9fa;
-        min-width: 260px; /* Increased width */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-        border-right: 1px solid #eee;
-    }
-
-    /* Right Side: PDF List */
-    .pdf-section {
-        flex-grow: 1;
-        padding: 20px 30px;
-        display: flex;
-        align-items: center;
-    }
-
-    /* PDF Button Styling */
-    .pdf-btn {
-        background-color: #fff;
-        border: 1px solid #dee2e6;
-        color: #495057;
-        padding: 10px 20px;
-        border-radius: 50px; /* Pill shape */
-        font-size: 0.9rem;
-        font-weight: 500;
-        text-decoration: none;
-        transition: all 0.2s ease;
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        min-width: 180px; /* Uniform width */
-        justify-content: center;
-    }
-
-    .pdf-btn:hover {
-        background-color: #dc3545;
-        border-color: #dc3545;
-        color: #fff;
-        transform: scale(1.02);
-    }
-    
-    .pdf-btn:hover i {
-        color: #fff !important;
-    }
-
-    .pdf-icon {
-        color: #dc3545;
-        font-size: 1.2rem;
-        transition: color 0.2s ease;
-    }
-
-    /* Responsive Adjustments */
-    @media (max-width: 768px) {
-        .principal-card {
-            flex-direction: column;
-            text-align: center;
-        }
-        .brand-section {
-            width: 100%;
-            border-right: none;
-            border-bottom: 1px solid #eee;
-            padding: 15px;
-        }
-        .pdf-section {
-            width: 100%;
-            justify-content: center;
-            padding: 20px;
-        }
-    }
-</style>
 
 <section class="py-5 bg-light">
     <div class="container">
@@ -143,7 +43,7 @@ require_once 'includes/navbar.php';
         </div>
 
         <?php
-        require_once 'config/database.php';
+        require_once '../config/database.php';
 
         // Fetch data
         $sql = "SELECT p.id, p.name, p.logo, pl.title, pl.file_path 
@@ -159,10 +59,15 @@ require_once 'includes/navbar.php';
         foreach ($results as $row) {
             // Fix for SINOVA and INNOMOTICS logos
             if (stripos($row['name'], 'SINOVA') !== false) {
-                $row['logo'] = 'assets/css/sinoplus.jpg';
+                $row['logo'] = '../assets/images2/sinoplus.jpg';
             }
             if (stripos($row['name'], 'INNOMOTICS') !== false) {
-                $row['logo'] = 'assets/css/innomotics.png';
+                $row['logo'] = '../assets/images2/innomotics.png';
+            }
+
+            // Fix relative paths
+            if (!empty($row['logo']) && strpos($row['logo'], 'http') === false && strpos($row['logo'], '../') !== 0 && strpos($row['logo'], './') !== 0) {
+                $row['logo'] = '../' . $row['logo'];
             }
 
             if (!isset($principals[$row['id']])) {
@@ -173,9 +78,13 @@ require_once 'includes/navbar.php';
                 ];
             }
             if ($row['title']) {
+                $filePath = $row['file_path'];
+                if (strpos($filePath, 'http') === false && strpos($filePath, '../') !== 0 && strpos($filePath, './') !== 0) {
+                    $filePath = '../' . $filePath;
+                }
                 $principals[$row['id']]['lists'][] = [
                     'title' => $row['title'],
-                    'file_path' => $row['file_path']
+                    'file_path' => $filePath
                 ];
             }
         }
@@ -226,8 +135,4 @@ require_once 'includes/navbar.php';
     </div>
 </section>
 
-
-<?php require_once 'includes/footer.php'; ?>
-
-
-
+<?php require_once '../includes/footer.php'; ?>

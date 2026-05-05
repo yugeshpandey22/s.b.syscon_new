@@ -1,0 +1,99 @@
+/* pricelists.css */
+
+@keyframes bgPulse {
+    0% { background-size: 100%; }
+    100% { background-size: 110%; }
+}
+.animate-bg-pulse {
+    animation: bgPulse 20s infinite alternate;
+}
+
+/* Premium Price List Design */
+.principal-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-left: 5px solid #dc3545; /* Red accent bar on left */
+    border-radius: 8px;
+    margin-bottom: 24px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.principal-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    border-color: #dc3545; /* Full red border on hover */
+}
+
+/* Left Side: Brand/Logo */
+.brand-section {
+    background-color: #f8f9fa;
+    min-width: 260px; /* Increased width */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-right: 1px solid #eee;
+}
+
+/* Right Side: PDF List */
+.pdf-section {
+    flex-grow: 1;
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+}
+
+/* PDF Button Styling */
+.pdf-btn {
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    color: #495057;
+    padding: 10px 20px;
+    border-radius: 50px; /* Pill shape */
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 180px; /* Uniform width */
+    justify-content: center;
+}
+
+.pdf-btn:hover {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: #fff;
+    transform: scale(1.02);
+}
+
+.pdf-btn:hover i {
+    color: #fff !important;
+}
+
+.pdf-icon {
+    color: #dc3545;
+    font-size: 1.2rem;
+    transition: color 0.2s ease;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .principal-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    .brand-section {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        padding: 15px;
+    }
+    .pdf-section {
+        width: 100%;
+        justify-content: center;
+        padding: 20px;
+    }
+}

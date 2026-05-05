@@ -1,7 +1,7 @@
 <?php
-require_once 'config/constants.php';
-require_once 'includes/head.php';
-require_once 'includes/navbar.php';
+require_once '../config/constants.php';
+require_once '../includes/head.php';
+require_once '../includes/navbar.php';
 ?>
 
 <section class="page-header py-5 bg-dark text-white text-center">
@@ -48,4 +48,4 @@ require_once 'includes/navbar.php';
     </div>
 </section>
 
-<?php require_once 'includes/footer.php'; ?>
+<?php require_once '../includes/footer.php'; ?>

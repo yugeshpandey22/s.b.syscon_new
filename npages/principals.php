@@ -1,18 +1,13 @@
 <?php
-require_once 'config/constants.php';
-require_once 'config/database.php'; // Added database connection
-require_once 'includes/head.php';
-require_once 'includes/navbar.php';
+require_once '../config/database.php'; // Added database connection
+require_once '../includes/head.php';
+require_once '../includes/navbar.php';
 ?>
 
 <!-- Page Header -->
-<section class="page-header py-5 position-relative mb-5" style="height: 500px; overflow: hidden;">
+<section class="page-header py-5 position-relative mb-5">
     <!-- Animated Background Image (Video Style) -->
-    <div class="position-absolute top-0 start-0 w-100 h-100" 
-         style="background: url('assets/css/partners_network.png') no-repeat center center; 
-                background-size: cover; 
-                animation: slowZoom 20s ease-in-out infinite alternate;">
-    </div>
+    <div class="page-header-bg"></div>
     
     <!-- Dark Overlay -->
     <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark" style="opacity: 0.5;"></div>
@@ -24,12 +19,7 @@ require_once 'includes/navbar.php';
         <p class="lead text-white fw-light fs-4" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">Connecting You to Global Engineering Excellence</p>
     </div>
 
-    <style>
-        @keyframes slowZoom {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.15); }
-        }
-    </style>
+<link rel="stylesheet" href="../assets/css/principals.css">
 </section>
 
 
@@ -82,30 +72,41 @@ require_once 'includes/navbar.php';
                 if (count($certificates) > 0) {
                     foreach ($certificates as $cert) {
                         $brandName = htmlspecialchars($cert['brand_name']);
-                        $logoPath = htmlspecialchars($cert['brand_logo']);
-                        $pdfPath = htmlspecialchars($cert['certificate_file']);
+                        $logoPath = $cert['brand_logo'];
+                        $pdfPath = $cert['certificate_file'];
+
+                        // Fix relative paths
+                        if (!empty($logoPath) && strpos($logoPath, 'http') === false && strpos($logoPath, '../') !== 0 && strpos($logoPath, './') !== 0) {
+                            $logoPath = '../' . $logoPath;
+                        }
+                        if (!empty($pdfPath) && strpos($pdfPath, 'http') === false && strpos($pdfPath, '../') !== 0 && strpos($pdfPath, './') !== 0) {
+                            $pdfPath = '../' . $pdfPath;
+                        }
+
+                        $logoPath = htmlspecialchars($logoPath);
+                        $pdfPath = htmlspecialchars($pdfPath);
                         
                         // Specific Logo Overrides for consistency
                         $imgStyle = '';
                         $upperName = strtoupper($brandName);
 
                         if (strpos($upperName, 'SIEMENS') !== false) {
-                            $logoPath = 'assets/images/siemens-logo-2025.png';
+                            $logoPath = '../assets/images/siemens-logo-2025.png';
                         } elseif (strpos($upperName, 'SINOVA') !== false || strpos($upperName, 'SINOPLUS') !== false) {
-                            $logoPath = 'assets/css/sinoplus.jpg';
+                            $logoPath = '../assets/images2/sinoplus.jpg';
                         } elseif (strpos($upperName, 'INNOMOTICS') !== false) {
-                            $logoPath = 'assets/css/innomotics_new.png';
+                            $logoPath = '../assets/images2/innomotics_new.png';
                         } elseif (strpos($upperName, 'FLENDER') !== false) {
-                            $logoPath = 'assets/css/flender_new.png'; // Correct Flender Logo
+                            $logoPath = '../assets/images2/flender_new.png'; // Correct Flender Logo
                         } elseif (strpos($upperName, 'SECURE') !== false) {
-                             $logoPath = 'assets/images/secure-logo-large.png'; // Correct Secure Logo
+                             $logoPath = '../assets/images/secure-logo-large.png'; // Correct Secure Logo
                              $imgStyle = 'style="max-height: 110px;"';
                         } elseif (strpos($upperName, 'LAPP') !== false) {
-                            $logoPath = 'assets/css/lapp_new.png';
+                            $logoPath = '../assets/images2/lapp_new.png';
                         } elseif (strpos($upperName, 'ASCO') !== false) {
-                            $logoPath = 'assets/css/asco_new.png';
+                            $logoPath = '../assets/images2/asco_new.png';
                         } elseif (strpos($upperName, 'BCH') !== false) {
-                            $logoPath = 'assets/css/bch_final.png';
+                            $logoPath = '../assets/images2/bch_final.png';
                         }
             ?>
             <div class="col">
@@ -131,74 +132,6 @@ require_once 'includes/navbar.php';
         </div>
     </div>
 
-    <style>
-        .principal-card {
-            background: #fff;
-            border: 1px solid #dcdcdc; /* Exact Light Grey Border */
-            border-radius: 6px; /* Slightly rounded corners */
-            padding: 25px 15px;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: none; /* Flat design */
-            transition: all 0.2s ease-in-out;
-            min-height: 250px;
-        }
-
-        .principal-card:hover {
-            border: 1px solid #1ba1e2; /* Windows Blue Border on Hover */
-            box-shadow: 0 0 10px rgba(27, 161, 226, 0.1); 
-        }
-
-        .logo-area {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            padding: 10px;
-            /* Divider removed to match clean screenshot */
-            margin-bottom: 20px;
-        }
-        
-        .brand-logo {
-            max-height: 120px; /* Increased size for better visibility */
-            max-width: 100%;
-            object-fit: contain;
-            transition: transform 0.3s ease;
-        }
-
-        .btn-cert {
-            background-color: #363b41 !important; /* Dark Charcoal */
-            color: #ffffff !important;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 4px;
-            font-size: 0.75rem; /* Smaller, crisp text */
-            width: 85%; 
-            font-weight: 400; /* Regular weight */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            line-height: 1.3;
-            text-decoration: none;
-            font-family: 'Segoe UI', sans-serif; /* Clean font */
-        }
-
-        .btn-cert:hover {
-            background-color: #2c3036 !important;
-        }
-        
-        .btn-cert i {
-            font-size: 0.8rem;
-            margin-bottom: 2px;
-        }
-    </style>
 </section>
 
 
@@ -304,45 +237,6 @@ require_once 'includes/navbar.php';
 </section>
 
 <!-- 3D Animation Scripts & Styles -->
-<style>
-    .tilt-card-principal {
-        position: relative;
-        background: #fff;
-        border-radius: 15px;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        padding: 2rem;
-        text-align: center;
-        transition: all 0.1s ease;
-        transform-style: preserve-3d;
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        border: 1px solid rgba(0,0,0,0.05);
-    }
-    
-    .card-content {
-        transform: translateZ(40px); /* Brings content forward */
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100%;
-        width: 100%;
-    }
-
-    .transform-3d {
-        transition: transform 0.3s ease;
-    }
-    
-    .tilt-card-principal:hover .transform-3d {
-        transform: translateZ(30px) scale(1.05); /* Extra pop on elements */
-    }
-
-    .tilt-card-principal:hover {
-        box-shadow: 0 20px 40px rgba(0,0,0,0.15); /* Deep shadow on hover */
-        border-color: var(--primary, #dc3545); /* Highlight border */
-    }
-</style>
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -372,60 +266,6 @@ require_once 'includes/navbar.php';
     });
 </script>
 
-<style>
-    /* ----- MOBILE RESPONSIVE ----- */
-    @media (max-width: 768px) {
-        /* Page Header */
-        .page-header {
-            height: 300px !important;
-            margin-bottom: 2rem !important;
-        }
-        .display-3 {
-            font-size: 2rem !important;
-        }
-        .page-header .lead {
-            font-size: 1rem !important;
-            padding: 0 15px;
-        }
-        
-        /* Section Headings */
-        .display-6 {
-            font-size: 1.6rem !important;
-        }
-        
-        /* Spacing */
-        section.certificates-section, section.principals-list-section {
-            padding-top: 40px !important;
-            padding-bottom: 40px !important;
-        }
-        
-        /* Cards */
-        .tilt-card-principal {
-            margin-bottom: 15px;
-            padding: 1.5rem !important;
-            /* Disable 3D Tilt on Touch Devices for better scrolling */
-            transform: none !important;
-            transition: transform 0.2s ease !important;
-        }
-        .tilt-card-principal:active {
-            transform: scale(0.98) !important;
-        }
-        
-        /* Icons */
-        .fa-3x {
-            font-size: 2.5em !important;
-        }
-    }
-    
-    @media (max-width: 480px) {
-        .page-header {
-            height: 250px !important;
-        }
-        .display-3 {
-            font-size: 1.6rem !important;
-        }
-    }
-</style>
 
 
-<?php require_once 'includes/footer.php'; ?>
+<?php require_once '../includes/footer.php'; ?>

@@ -1,6 +1,7 @@
 <?php
 // send_otp.php
 session_start();
+require_once '../includes/mailer.php';
 header('Content-Type: application/json');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -16,20 +17,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $subject = "Your Verification Code - S.B. Syscon";
         $message = "Your verification OTP is: $otp";
         
-        // Use PHPMailer
-        require_once 'includes/mailer.php';
-        sendMail($email, $subject, $message); 
+        $mailSent = sendMail($email, $subject, $message); 
 
-        // 2. ALWAYS Log to file (For Localhost Testing)
-        // Since XAMPP usually can't send emails, check this file:
-        $logEntry = date('Y-m-d H:i:s') . " - OTP for $email: $otp\n";
-        file_put_contents('otp_log.txt', $logEntry, FILE_APPEND);
-
-        // Return success
-        echo json_encode([
-            'success' => true, 
-            'message' => 'OTP Sent! (Check email or otp_log.txt on localhost)'
-        ]);
+        if ($mailSent) {
+            echo json_encode([
+                'success' => true, 
+                'message' => 'OTP Sent! Please check your email.'
+            ]);
+        } else {
+            echo json_encode([
+                'success' => false, 
+                'message' => 'Failed to send email. Please check SMTP settings or use localhost log.'
+            ]);
+        }
     } else {
         echo json_encode(['success' => false, 'message' => 'Invalid email address.']);
     }

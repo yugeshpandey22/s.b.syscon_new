@@ -16,44 +16,32 @@
                          <!-- Member 1 -->
                         <div class="col-6 col-lg-3">
                             <div class="card border shadow-none align-items-center justify-content-center p-0 membership-card w-100" style="height: 220px; overflow: hidden;">
-                                <img src="assets/css/cer1.jpg" alt="IEEMA" class="img-fluid" style="width: 100%; height: 100%; object-fit: contain;">
+                                <img src="../assets/images2/cer1.jpg" alt="IEEMA" class="img-fluid" style="width: 100%; height: 100%; object-fit: contain;">
                             </div>
                         </div>
                          <!-- Member 2 -->
                          <div class="col-6 col-lg-3">
                              <div class="card border shadow-none align-items-center justify-content-center p-0 membership-card w-100" style="height: 220px; overflow: hidden;">
-                                <img src="assets/css/cer2.jpg" alt="COSMA" class="img-fluid" style="width: 100%; height: 100%; object-fit: contain;">
+                                <img src="../assets/images2/cer2.jpg" alt="COSMA" class="img-fluid" style="width: 100%; height: 100%; object-fit: contain;">
                             </div>
                         </div>
                          <!-- Member 3 -->
                           <div class="col-6 col-lg-3">
                               <div class="card border shadow-none align-items-center justify-content-center p-0 membership-card w-100" style="height: 220px; overflow: hidden;">
-                                <img src="assets/css/cer3.jpg" alt="AESA" class="img-fluid" style="width: 100%; height: 100%; object-fit: contain;">
+                                <img src="../assets/images2/cer3.jpg" alt="AESA" class="img-fluid" style="width: 100%; height: 100%; object-fit: contain;">
                             </div>
                         </div>
                          <!-- Member 4 -->
                           <div class="col-6 col-lg-3">
                               <div class="card border shadow-none align-items-center justify-content-center p-0 membership-card w-100" style="height: 220px; overflow: hidden;">
-                                <img src="assets/css/cer4.jpg" alt="FETA" class="img-fluid" style="width: 100%; height: 100%; object-fit: contain;">
+                                <img src="../assets/images2/cer4.jpg" alt="FETA" class="img-fluid" style="width: 100%; height: 100%; object-fit: contain;">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <style>
-            .membership-card {
-                transition: all 0.3s ease;
-                background: #fff;
-                border-radius: 4px; 
-                border: 1px solid #eee !important;
-            }
-            .membership-card:hover {
-                /* transform: translateY(-5px); - REMOVED to stop lifting */
-                /* box-shadow: 0 1rem 3rem rgba(0,0,0,.1)!important; - REMOVED */
-                border-color: #ddd !important;
-            }
-        </style>
+<link rel="stylesheet" href="../assets/css/footer.css">
     </section>
     <?php endif; ?>
 
@@ -63,7 +51,7 @@
             <!-- Company Info -->
             <div class="col-lg-4">
                 <a href="index.php" class="d-block mb-3">
-                    <img src="assets/css/headerlogo.png" alt="S.B. Syscon" style="max-height: 70px; background: #fff; padding: 5px; border-radius: 4px;">
+                    <img src="../assets/images2/headerlogo.png" alt="S.B. Syscon" style="max-height: 70px; background: #fff; padding: 5px; border-radius: 4px;">
                 </a>
                 <p class="text-white-50 small">Leading innovation in technology with global reach and local expertise.</p>
             </div>
@@ -164,59 +152,12 @@
     offset: 50
   });
 </script>
-<script src="assets/js/main.js"></script>
+<script src="../assets/js/main.js"></script>
 
 <!-- MAGIC CURSOR ELEMENTS -->
 <div class="cursor-dot" data-cursor-dot></div>
 <div class="cursor-outline" data-cursor-outline></div>
 
-<style>
-    /* Cursor Styles */
-    .cursor-dot {
-        width: 8px;
-        height: 8px;
-        background-color: #f1c40f; /* Gold Dot */
-        position: fixed;
-        top: 0;
-        left: 0;
-        transform: translate(-50%, -50%);
-        border-radius: 50%;
-        z-index: 9999;
-        pointer-events: none;
-    }
-
-    .cursor-outline {
-        width: 40px;
-        height: 40px;
-        border: 2px solid rgba(191, 38, 38, 0.5); /* Red Ring */
-        position: fixed;
-        top: 0;
-        left: 0;
-        transform: translate(-50%, -50%);
-        border-radius: 50%;
-        z-index: 9999;
-        pointer-events: none;
-        transition: width 0.2s, height 0.2s, background-color 0.2s;
-    }
-
-    /* Hover State for Cursor */
-    body.hovering .cursor-outline {
-        width: 70px;
-        height: 70px;
-        background-color: rgba(241, 196, 15, 0.1); /* Subtle Gold Fill */
-        border-color: #f1c40f;
-    }
-    
-    /* Hide on Mobile */
-    @media (max-width: 768px) {
-        .cursor-dot, .cursor-outline {
-            display: none;
-        }
-        body {
-            cursor: auto;
-        }
-    }
-</style>
 
 <script>
     // Magic Cursor Script

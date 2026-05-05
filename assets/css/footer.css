@@ -1,0 +1,61 @@
+/* footer.css */
+
+.membership-card {
+    transition: all 0.3s ease;
+    background: #fff;
+    border-radius: 4px; 
+    border: 1px solid #eee !important;
+}
+.membership-card:hover {
+    border-color: #ddd !important;
+}
+
+/* Cursor Styles */
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #f1c40f; /* Gold Dot */
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.cursor-outline {
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(191, 38, 38, 0.5); /* Red Ring */
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 9999;
+    pointer-events: none;
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+/* Hover State for Cursor */
+body.hovering .cursor-outline {
+    width: 70px;
+    height: 70px;
+    background-color: rgba(241, 196, 15, 0.1); /* Subtle Gold Fill */
+    border-color: #f1c40f;
+}
+
+/* Hide on Mobile */
+@media (max-width: 768px) {
+    .cursor-dot, .cursor-outline {
+        display: none;
+    }
+    body {
+        cursor: auto;
+    }
+}
+
+.hover-white:hover {
+    color: #fff !important;
+}
