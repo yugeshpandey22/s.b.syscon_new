@@ -3,7 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo defined('SITE_NAME') ? SITE_NAME : 'S.B. Syscon Pvt. Ltd.'; ?></title>
+    <title><?php echo isset($page_title) ? $page_title : (defined('SITE_NAME') ? SITE_NAME : 'S.B. Syscon Pvt. Ltd.'); ?></title>
+    
+    <?php if(isset($meta_description)): ?>
+    <meta name="description" content="<?php echo htmlspecialchars($meta_description); ?>">
+    <?php endif; ?>
+    
+    <?php if(isset($meta_keywords)): ?>
+    <meta name="keywords" content="<?php echo htmlspecialchars($meta_keywords); ?>">
+    <?php endif; ?>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

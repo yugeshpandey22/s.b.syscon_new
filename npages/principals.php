@@ -4,8 +4,10 @@ require_once '../includes/head.php';
 require_once '../includes/navbar.php';
 ?>
 
+<link rel="stylesheet" href="../assets/css/principals.css">
+
 <!-- Page Header -->
-<section class="page-header py-5 position-relative mb-5">
+<section class="page-header py-5 position-relative">
     <!-- Animated Background Image (Video Style) -->
     <div class="page-header-bg"></div>
     
@@ -18,8 +20,6 @@ require_once '../includes/navbar.php';
         <div class="bg-primary mt-3 mb-4 rounded-pill" style="width: 100px; height: 5px;"></div>
         <p class="lead text-white fw-light fs-4" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">Connecting You to Global Engineering Excellence</p>
     </div>
-
-<link rel="stylesheet" href="../assets/css/principals.css">
 </section>
 
 
@@ -111,7 +111,7 @@ require_once '../includes/navbar.php';
             ?>
             <div class="col">
                 <div class="principal-card">
-                    <div class="logo-area">
+                    <div class="p-logo-area">
                         <img src="<?php echo $logoPath; ?>" alt="<?php echo $brandName; ?>" class="img-fluid brand-logo" <?php echo $imgStyle; ?>>
                     </div>
                     <a href="<?php echo $pdfPath; ?>" target="_blank" class="btn btn-cert">

@@ -53,6 +53,11 @@ require_once 'includes/auth.php';
                         <i class="fas fa-certificate"></i> Certificates
                     </a>
                 </li>
+                <li>
+                    <a href="blogs/manage.php" class="nav-link">
+                        <i class="fas fa-blog"></i> Manage Blogs
+                    </a>
+                </li>
             </ul>
             <hr>
             <a href="logout.php" class="nav-link text-danger fw-bold">
@@ -120,6 +125,22 @@ require_once 'includes/auth.php';
                                 </div>
                                 <p class="card-text text-muted">Manage brand authorization certificates.</p>
                                 <a href="certificates/manage.php" class="btn btn-info text-white w-100">Manage Certificates</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blog Card -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card card-custom h-100">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h5 class="card-title fw-bold text-dark">Blog Posts</h5>
+                                    <div class="icon-box bg-primary bg-opacity-10 text-primary p-2 rounded">
+                                        <i class="fas fa-blog fa-lg"></i>
+                                    </div>
+                                </div>
+                                <p class="card-text text-muted">Publish and manage industrial blog posts.</p>
+                                <a href="blogs/manage.php" class="btn btn-primary w-100">Manage Blogs</a>
                             </div>
                         </div>
                     </div>

@@ -1,0 +1,139 @@
+/* blog.css */
+
+.blog-hero {
+    background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+    padding: 100px 0 60px 0;
+    text-align: center;
+    border-bottom: 3px solid #bf2626;
+}
+
+.blog-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.blog-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.blog-card-img {
+    height: 220px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.blog-category {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #bf2626;
+    letter-spacing: 1.5px;
+    background: rgba(191, 38, 38, 0.05);
+    padding: 4px 12px;
+    border-radius: 50px;
+    display: inline-block;
+}
+
+.blog-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 10px 0;
+    line-height: 1.3;
+}
+
+.blog-summary {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.blog-meta {
+    font-size: 0.85rem;
+    color: #999;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.read-more-btn {
+    font-weight: 700;
+    color: #bf2626;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: gap 0.3s;
+}
+
+.read-more-btn:hover {
+    gap: 10px;
+    color: #a61c1c;
+}
+
+/* Blog Content Styles (for details page) */
+.blog-details-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+}
+
+.blog-details-content h2, .blog-details-content h3 {
+    margin-top: 30px;
+    font-weight: 700;
+}
+
+.blog-details-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+/* Premium Breadcrumbs with Glassmorphism */
+.breadcrumb-wrap {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 10px 25px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2.5rem;
+}
+
+.breadcrumb {
+    background: transparent;
+    padding: 0;
+    margin-bottom: 0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: "/";
+    color: #ccc;
+    padding: 0 12px;
+    font-weight: 300;
+}
+
+.breadcrumb-item a {
+    color: #888;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.breadcrumb-item a:hover {
+    color: #bf2626 !important;
+}
+
+.breadcrumb-item.active {
+    color: #bf2626 !important;
+    font-weight: 800;
+}

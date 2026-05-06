@@ -148,7 +148,7 @@ html, body {
     }
 }
 
-/* FORCE background image on slides */
+/* Hero Swiper Fixes */
 .hero-swiper .swiper-slide {
     background-size: cover !important;
     background-position: center !important;
@@ -163,7 +163,7 @@ html, body {
 /* Hero height fix - DESKTOP */
 .hero-section {
     width: 100%;
-    height: 650px; /* Precise height */
+    height: 550px; /* Precise height */
     position: relative;
 }
 
@@ -173,12 +173,7 @@ html, body {
     height: 100%;
 }
 
-/* Background Image Direct */
-.hero-swiper .swiper-slide {
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-}
+
 
 /* 🔥 MOBILE RESPONSIVE FIX (Alignment & Alignment) */
 @media(max-width: 992px){
@@ -235,18 +230,7 @@ html, body {
     }
 }
 
-.hero-swiper,
-.hero-swiper .swiper-slide{
-    width:100%;
-    height:100%;
-}
 
-/* Background Image Direct */
-.hero-swiper .swiper-slide{
-    background-size:cover !important;
-    background-position:center !important;
-    background-repeat:no-repeat !important;
-}
 
 /* Principals Section (Logos) */
 .client-logo-box {

@@ -5,7 +5,7 @@ require_once '../includes/navbar.php';
 ?>
 
 <!-- Premium Hero Section (Swiper.js with Shatter Effect) -->
-<section class="hero-section position-relative overflow-hidden p-0 m-0 bg-black" style="height: 850px;">
+<section class="hero-section position-relative overflow-hidden p-0 m-0 bg-black" style="height: 550px;">
 
 
 
@@ -870,4 +870,74 @@ require_once '../includes/navbar.php';
 
 <!-- SOCIAL MEDIA FEED SECTION -->
 <!-- SOCIAL MEDIA FEED SECTION -->
+<!-- LATEST BLOGS SECTION -->
+<section class="py-5 bg-light" data-aos="fade-up">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-end mb-5">
+            <div>
+                <h6 class="text-danger fw-bold text-uppercase mb-2 ls-1">Industrial Insights</h6>
+                <h2 class="display-5 fw-bold text-dark mb-0">Latest from our Blog</h2>
+            </div>
+            <a href="blog.php" class="btn btn-outline-danger px-4 rounded-pill fw-bold d-none d-md-block">
+                View All Posts <i class="fas fa-arrow-right ms-2"></i>
+            </a>
+        </div>
+
+        <?php
+        // Fetch 3 latest published blogs
+        $stmt_blog = $conn->query("SELECT * FROM blogs WHERE status = 'published' ORDER BY created_at DESC LIMIT 3");
+        $latest_blogs = $stmt_blog->fetchAll();
+
+        if (count($latest_blogs) > 0):
+        ?>
+        <div class="row g-4">
+            <?php foreach ($latest_blogs as $lblog): ?>
+            <div class="col-md-4">
+                <article class="bg-white rounded-4 overflow-hidden shadow-sm h-100 border-0 transition-transform hover-translate-y" style="transition: transform 0.3s;">
+                    <a href="blog-details.php?slug=<?php echo $lblog['slug']; ?>" class="d-block overflow-hidden" style="height: 220px;">
+                        <?php if ($lblog['image']): ?>
+                            <img src="../<?php echo htmlspecialchars($lblog['image']); ?>" class="w-100 h-100 object-fit-cover" alt="<?php echo htmlspecialchars($lblog['title']); ?>">
+                        <?php else: ?>
+                            <div class="w-100 h-100 bg-dark d-flex align-items-center justify-content-center text-white opacity-25">
+                                <i class="fas fa-image fa-3x"></i>
+                            </div>
+                        <?php endif; ?>
+                    </a>
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="badge bg-danger bg-opacity-10 text-danger rounded-pill px-3"><?php echo htmlspecialchars($lblog['category']); ?></span>
+                            <small class="text-muted"><i class="far fa-calendar-alt me-1"></i> <?php echo date('M d', strtotime($lblog['created_at'])); ?></small>
+                        </div>
+                        <h5 class="fw-bold mb-3">
+                            <a href="blog-details.php?slug=<?php echo $lblog['slug']; ?>" class="text-dark text-decoration-none">
+                                <?php echo htmlspecialchars(mb_strimwidth($lblog['title'], 0, 60, "...")); ?>
+                            </a>
+                        </h5>
+                        <p class="text-muted small mb-4">
+                            <?php echo htmlspecialchars(mb_strimwidth($lblog['summary'], 0, 100, "...")); ?>
+                        </p>
+                        <a href="blog-details.php?slug=<?php echo $lblog['slug']; ?>" class="text-danger fw-bold text-decoration-none small text-uppercase ls-1">
+                            Read Article <i class="fas fa-chevron-right ms-1"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+            <?php endforeach; ?>
+        </div>
+        <?php else: ?>
+            <div class="text-center py-5">
+                <p class="text-muted">New industrial insights coming soon!</p>
+            </div>
+        <?php endif; ?>
+        
+        <div class="text-center mt-5 d-md-none">
+            <a href="blog.php" class="btn btn-danger px-5 rounded-pill fw-bold">View All Posts</a>
+        </div>
+    </div>
+</section>
+
+<style>
+    .hover-translate-y:hover { transform: translateY(-10px); }
+</style>
+
 <?php require_once '../includes/footer.php'; ?>

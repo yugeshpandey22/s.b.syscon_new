@@ -18,17 +18,17 @@
                     <i class="fas fa-phone-alt text-danger fs-4"></i>
                     <div>
                         <small class="d-block text-muted" style="line-height:1;">Call Us</small>
-                        <span class="fw-bold text-dark">+91-129-4065600</span>
+                        <span class="fw-bold text-dark" style="white-space: nowrap;">+91-129-4065600</span>
                     </div>
                 </div>
                 <div class="d-flex align-items-center gap-2">
                     <i class="fas fa-envelope text-danger fs-4"></i>
                     <div>
                         <small class="d-block text-muted" style="line-height:1;">Email Us</small>
-                        <span class="fw-bold text-dark">info@sbsyscon.in</span>
+                        <span class="fw-bold text-dark" style="white-space: nowrap;">info@sbsyscon.in</span>
                     </div>
                 </div>
-                <div class="d-flex align-items-center">
+                <div class="d-flex align-items-center" style="white-space: nowrap;">
                     <a href="https://www.sbsmart.in" target="_blank" class="btn-sbsmart">
                         <i class="fas fa-shopping-cart me-2"></i>
                         <span>SB SMART SHOP</span>
@@ -62,6 +62,7 @@
                 <li class="nav-item"><a class="nav-link" href="clientele.php">Clientele</a></li>
                 <li class="nav-item"><a class="nav-link" href="exports.php">Exports</a></li>
                 <li class="nav-item"><a class="nav-link" href="pricelists.php">Price Lists</a></li>
+                <li class="nav-item"><a class="nav-link" href="blog.php">Blog</a></li>
                 <li class="nav-item"><a class="nav-link" href="contact.php">Contact Us</a></li>
             </ul>
         </div>

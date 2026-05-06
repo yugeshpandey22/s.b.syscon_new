@@ -60,6 +60,9 @@
     font-weight: 700;
     display: flex;
     align-items: center;
+    white-space: nowrap !important;
+    min-width: 180px !important;
+    flex-shrink: 0 !important;
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px rgba(191, 38, 38, 0.2);
     letter-spacing: 0.5px;
@@ -68,4 +71,11 @@
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(191, 38, 38, 0.3);
     color: white;
+}
+
+/* Active Link Style */
+.navbar-nav .nav-link.active {
+    background: rgba(0, 0, 0, 0.15) !important;
+    border-radius: 4px;
+    font-weight: 700 !important;
 }
